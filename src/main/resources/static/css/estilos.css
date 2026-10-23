@@ -1,0 +1,70 @@
+:root {
+    --verde: #648577;
+    --verde-oscuro: #405f52;
+    --crema: #f8f7f2;
+    --beige: #e9e5d9;
+    --texto: #303d36;
+}
+
+body {
+    background-color: var(--crema);
+    color: var(--texto);
+    font-family: Arial, sans-serif;
+}
+
+header.bg-success {
+    background-color: var(--verde-oscuro) !important;
+    color: white;
+}
+
+.navbar {
+    background-color: var(--beige) !important;
+}
+
+.navbar .nav-link {
+    color: var(--verde-oscuro);
+    font-weight: 500;
+}
+
+h2, h3, h4 {
+    color: var(--verde-oscuro);
+}
+
+.card {
+    border: 1px solid var(--beige);
+    border-radius: 12px;
+    background-color: white;
+}
+
+.card-title {
+    color: var(--verde-oscuro);
+}
+
+.btn-success {
+    background-color: var(--verde);
+    border-color: var(--verde);
+}
+
+.btn-success:hover {
+    background-color: var(--verde);
+    border-color: var(--verde);
+}
+
+.table-success {
+    --bs-table-bg: #dce8df;
+    --bs-table-color: var(--texto);
+}
+
+.table {
+    background-color: white;
+}
+
+.form-control,
+.form-select {
+    border-color: #cbd5cd;
+}
+
+footer {
+    background-color: var(--verde-oscuro) !important;
+    color: white;
+}

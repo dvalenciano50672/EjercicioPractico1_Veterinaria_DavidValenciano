@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: plantilla(~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Citas Veterinarias</title>
+</head>
+
+<body>
+
+    <main class="container mt-4">
+
+        <h2>Citas Programadas</h2>
+
+        <table class="table table-bordered table-striped mt-3">
+
+            <thead class="table-success">
+                <tr>
+                    <th>Mascota</th>
+                    <th>Propietario</th>
+                    <th>Fecha</th>
+                    <th>Servicio</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="cita : ${citas}">
+                    <td th:text="${cita.nombreMascota}"></td>
+
+                    <td th:text="${cita.nombrePropietario}"></td>
+
+                    <td th:text="${#temporals.format(cita.fecha, 'dd/MM/yyyy')}"></td>
+
+                    <td th:text="${cita.servicio.nombre}"></td>
+                </tr>
+            </tbody>
+
+        </table>
+
+    </main>
+
+</body>
+</html>

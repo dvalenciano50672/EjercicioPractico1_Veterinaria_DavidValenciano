@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: plantilla(~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Servicio</title>
+</head>
+
+<body>
+
+<main class="container mt-4">
+
+    <h2 th:text="${servicio.id == null}
+        ? 'Agregar Servicio'
+        : 'Editar Servicio'">
+    </h2>
+
+    <form th:action="@{/servicios/guardar}"
+          th:object="${servicio}"
+          method="post">
+
+        <input type="hidden" th:field="*{id}">
+
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+
+            <input type="text"
+                   class="form-control"
+                   th:field="*{nombre}"
+                   required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Tipo de Servicio</label>
+
+            <select class="form-select"
+                    th:field="*{tipoServicio.id}"
+                    required>
+
+                <option value="">Seleccione un tipo</option>
+
+                <option th:each="tipo : ${tipos}"
+                        th:value="${tipo.id}"
+                        th:text="${tipo.nombre}">
+                </option>
+
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Precio</label>
+
+            <input type="number"
+                   class="form-control"
+                   th:field="*{precio}"
+                   step="0.01"
+                   min="0"
+                   required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Duracion en Minutos</label>
+
+            <input type="number"
+                   class="form-control"
+                   th:field="*{duracionMinutos}"
+                   min="1"
+                   required>
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Guardar
+        </button>
+
+        <a th:href="@{/servicios}" class="btn btn-secondary">
+            Cancelar
+        </a>
+
+    </form>
+
+</main>
+
+</body>
+</html>

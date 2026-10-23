@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: plantilla(~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Consultas</title>
+</head>
+
+<body>
+
+    <main class="container mt-4">
+
+        <h2>Consultas</h2>
+
+        <p>
+            Complete el siguiente formulario para realizar
+            una consulta sobre su mascota.
+        </p>
+
+        <div th:if="${mensaje}"
+             class="alert alert-success"
+             th:text="${mensaje}">
+        </div>
+
+        <form th:action="@{/consultas}" method="post">
+
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text"
+                       name="nombre"
+                       class="form-control"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Correo Electronico</label>
+                <input type="email"
+                       name="correo"
+                       class="form-control"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Nombre de la Mascota</label>
+                <input type="text"
+                       name="mascota"
+                       class="form-control"
+                       required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Mensaje</label>
+                <textarea name="mensaje"
+                          class="form-control"
+                          rows="4"
+                          required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">
+                Enviar Consulta
+            </button>
+
+        </form>
+
+    </main>
+
+</body>
+</html>

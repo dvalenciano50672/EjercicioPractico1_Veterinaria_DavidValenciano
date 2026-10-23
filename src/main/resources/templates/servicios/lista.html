@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: plantilla(~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Servicios Veterinarios</title>
+</head>
+
+<body>
+
+<main class="container mt-4">
+
+    <h2>Servicios Veterinarios</h2>
+
+    <a th:href="@{/servicios/nuevo}"
+       class="btn btn-success mb-3">
+        Agregar Servicio
+    </a>
+
+    <div th:if="${mensaje}"
+         class="alert alert-success"
+         th:text="${mensaje}">
+    </div>
+
+    <table class="table table-bordered table-striped">
+
+        <thead class="table-success">
+            <tr>
+                <th>Nombre</th>
+                <th>Tipo de Servicio</th>
+                <th>Precio</th>
+                <th>Duracion</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="servicio : ${servicios}">
+
+                <td th:text="${servicio.nombre}"></td>
+
+                <td th:text="${servicio.tipoServicio.nombre}"></td>
+
+                <td th:text="${servicio.precio}"></td>
+
+                <td th:text="${servicio.duracionMinutos + ' minutos'}"></td>
+
+                <td>
+
+                    <a th:href="@{/servicios/editar/{id}(id=${servicio.id})}"
+                       class="btn btn-warning btn-sm">
+                        Editar
+                    </a>
+
+                    <button type="button"
+                            class="btn btn-danger btn-sm"
+                            data-bs-toggle="modal"
+                            th:attr="data-bs-target='#eliminar' + ${servicio.id}">
+                        Eliminar
+                    </button>
+
+                    <div class="modal fade"
+                         th:id="'eliminar' + ${servicio.id}"
+                         tabindex="-1">
+
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">
+                                        Confirmar Eliminacion
+                                    </h5>
+
+                                    <button type="button"
+                                            class="btn-close"
+                                            data-bs-dismiss="modal">
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    ¿Desea eliminar este servicio?
+                                </div>
+
+                                <div class="modal-footer">
+
+                                    <button type="button"
+                                            class="btn btn-secondary"
+                                            data-bs-dismiss="modal">
+                                        Cancelar
+                                    </button>
+
+                                    <form th:action="@{/servicios/eliminar/{id}(id=${servicio.id})}"
+                                          method="post">
+
+                                        <button type="submit"
+                                                class="btn btn-danger">
+                                            Eliminar
+                                        </button>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</main>
+
+</body>
+</html>

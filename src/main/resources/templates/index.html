@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      th:replace="~{base :: plantilla(~{::main})}">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Clinica Veterinaria</title>
+</head>
+
+<body>
+
+<main class="container mt-4">
+
+    <h2 class="text-center mb-4">
+        Bienvenidos a Nuestra Clinica Veterinaria
+    </h2>
+
+    <p class="text-center">
+        Nos dedicamos al cuidado y bienestar de tus mascotas,
+        ofreciendo servicios veterinarios de calidad.
+    </p>
+
+    <div class="row mt-4">
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Horario de Atencion</h4>
+                    <p>Lunes a Viernes: 8:00 a.m. - 6:00 p.m.</p>
+                    <p>Sabados: 9:00 a.m. - 3:00 p.m.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Ubicacion</h4>
+                    <p>San Jose, Costa Rica</p>
+                    <p>Visitanos para recibir atencion veterinaria.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Especialidades</h4>
+                    <p>
+                        Medicina general, vacunacion, estetica
+                        y cirugia veterinaria.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h4 class="card-title">Promocion del Mes</h4>
+                    <p>
+                        Consulta veterinaria con un 10% de descuento
+                        durante este mes.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <section class="text-center mt-4">
+
+        <h3>Consejos para el Cuidado de tu Mascota</h3>
+
+        <p>
+            Conoce algunas recomendaciones para mantener
+            a tu mascota saludable.
+        </p>
+
+        <div class="ratio ratio-16x9 mx-auto"
+            style="max-width: 700px;">
+
+            <iframe
+                src="https://www.youtube.com/embed/IC1egkXC6I8"
+                title="Consejos para el cuidado de mascotas"
+                allowfullscreen>
+            </iframe>
+
+        </div>
+
+    </section>
+
+</main>
+
+</body>
+</html>
